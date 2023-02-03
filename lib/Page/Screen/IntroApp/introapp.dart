@@ -2,6 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:mynotes/Page/HomePage/home.dart';
+import 'package:mynotes/Page/LoginPage/inputlogin/InputLogin.dart';
+import 'package:firebase_core/firebase_core.dart' as firebase_core;
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 void main() => runApp(App());
 
@@ -16,7 +20,7 @@ class App extends StatelessWidget {
       title: 'Introduction screen',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: OnBoardingPage(),
+      home: Inputlogin(),
     );
   }
 }
@@ -31,13 +35,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   void _onIntroEnd(context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => HomePage()),
+      MaterialPageRoute(builder: (_) => Inputlogin()),
     );
   }
 
   Widget _buildFullscreenImage() {
     return Image.asset(
-      'assets/onboarding1.png',
+      'assets/images/onboarding1.png',
       fit: BoxFit.cover,
       height: double.infinity,
       width: double.infinity,
@@ -85,25 +89,25 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           title: "Suitable For Making Small Notes",
           body:
           "For those who like to take notes, My Notes is perfect for use. Because it is very simple and easy to use",
-          image: _buildImage('onboarding1.png'),
+          image: _buildImage('images/onboarding1.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Light application",
           body:
           "The next advantage of My Notes is that the application is small in size and can be downloaded on various operating systems",
-          image: _buildImage('onboarding2.png'),
+          image: _buildImage('images/onboarding2.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Easy for use",
           body:
           "The My Notes application is not difficult to use as a media note and is suitable for everyday use",
-          image: _buildImage('onboarding3.png'),
+          image: _buildImage('images/onboarding3.png'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          image: _buildImage('logo.png', 300),
+          image: _buildImage('images/project - logo.png', 300),
           bodyWidget: Row(
             mainAxisAlignment: MainAxisAlignment.center,
           ),
@@ -147,16 +151,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           borderRadius: BorderRadius.all(Radius.circular(8.0)),
         ),
       ),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
-      body: const Center(child: Text("This is the screen after Introduction")),
     );
   }
 }

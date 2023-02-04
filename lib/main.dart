@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
-import 'notes.dart';
+import 'Responsif_Bloc/notes.dart';
 
 void main() {
   runApp(const MyApp());

@@ -50,6 +50,8 @@ dependencies:
   get: ^4.6.5
   cached_network_image:
   firebase_auth: ^4.2.5
+  firebase_messaging: ^14.2.1
+  flutter_local_notifications: ^13.0.0
 
 
 dev_dependencies:

@@ -1,14 +1,21 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:mynotes/Page/Screen/IntroApp/introapp.dart';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  FirebaseMessaging.onBackgroundMessage(backgroundaHandler);
   runApp(const MyApp());
 }
+
+Future<void> backgroundaHandler(RemoteMessage message) async {
+  print(message.data.toString());
+  print(message.notification!.title);
+}
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

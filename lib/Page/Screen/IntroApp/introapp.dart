@@ -6,6 +6,8 @@ import 'package:mynotes/Page/HomePage/home.dart';
 import 'package:mynotes/Page/LoginPage/inputlogin/InputLogin.dart';
 import 'package:firebase_core/firebase_core.dart' as firebase_core;
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:mynotes/Page/LoginPage/inputlogin/components/LoginGoogle.dart';
+import 'package:mynotes/Page/LoginPage/inputlogin/components/MethodLogin.dart';
 
 void main() => runApp(App());
 
@@ -20,7 +22,7 @@ class App extends StatelessWidget {
       title: 'Introduction screen',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: Inputlogin(),
+      home: LoginGoogle(),
     );
   }
 }

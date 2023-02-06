@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mynotes/Page/LoginPage/inputlogin/auth/auth.dart';
 import 'package:mynotes/Page/LoginPage/inputlogin/components/MethodLogin.dart';
-import 'package:mynotes/Page/LoginPage/profile/mainprofile.dart';
 import 'package:firebase_core/firebase_core.dart' as firebase_core;
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:mynotes/Page/Tabbar/Tab.dart';
 
 class Inputlogin extends StatefulWidget {
   const Inputlogin({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class _InputloginState extends State<Inputlogin> {
       stream: Auth().authStateChanges,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return MainProfile();
+          return const TabBarDemo();
         } else {
           return const MethodLogin();
         }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mynotes/Materials/Colors/constant.dart';
 import '../cubit/cubit.dart';
 import '../cubit/states.dart';
 
@@ -24,6 +25,7 @@ class MyMobileBody extends StatelessWidget {
         },
         builder: (BuildContext context, CounterStates state) {
           return Scaffold(
+            backgroundColor: Colors.black,
             body: Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -34,6 +36,7 @@ class MyMobileBody extends StatelessWidget {
                     },
                     child: const Text(
                       "PLUS",
+                      style: TextStyle(color: secondary),
                     ),
                   ),
                   Padding(
@@ -43,6 +46,7 @@ class MyMobileBody extends StatelessWidget {
                     child: Text(
                       "${CounterCubit.get(context).counter}",
                       style: const TextStyle(
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 50,
                       ),
@@ -54,6 +58,7 @@ class MyMobileBody extends StatelessWidget {
                     },
                     child: const Text(
                       "MINUS",
+                      style: TextStyle(color: secondary),
                     ),
                   ),
                 ],

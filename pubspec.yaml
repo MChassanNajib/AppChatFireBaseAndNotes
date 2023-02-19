@@ -54,6 +54,9 @@ dependencies:
   flutter_local_notifications: ^13.0.0
   flutter_bloc: ^8.0.1
   bloc: ^8.0.3
+  flutterfire_ui:
+  flutter_zoom_drawer:
+  intl:
 
 
 dev_dependencies:

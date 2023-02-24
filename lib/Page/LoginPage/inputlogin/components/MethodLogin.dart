@@ -240,6 +240,45 @@ class _MethodLoginState extends State<MethodLogin> {
     );
   }
 
+  Widget landscapeLogin() {
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        return Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: orientation == Orientation.portrait ? 0 : 1,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Logo(),
+                    _entryFieldEmail('email', _controllerEmail),
+                    _entryFieldPassword('password', _controllerPassword),
+                    _submitButton(),
+                    const LoginGoogle(),
+                    _loginOrRegisterButton(),
+                  ],
+                ),
+              ),
+              if (orientation == Orientation.landscape)
+                Expanded(
+                  flex: 1,
+                  child: Image.asset(
+                    'assets/images/login_image_landscape.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   Widget Register() {
 
     return Padding(

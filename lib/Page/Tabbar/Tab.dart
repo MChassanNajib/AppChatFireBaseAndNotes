@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mynotes/Materials/Colors/constant.dart';
 import 'package:mynotes/Page/CRUD/crud.dart';
 import 'package:mynotes/Page/LoginPage/profile/mainprofile.dart';
+import 'package:mynotes/Page/Responsif_Bloc/cruds.dart';
 import 'package:mynotes/Page/Responsif_Bloc/notes.dart';
+import 'package:mynotes/Page/Responsif_Bloc/mainprofile.dart';
 
 class TabBarDemo extends StatelessWidget {
   const TabBarDemo({super.key});
@@ -29,9 +31,9 @@ class TabBarDemo extends StatelessWidget {
               //ilham
               notes(),
               //crud ahmad
-              crud(),
+              crudresponsive(),
               //profile
-              MainProfile()
+              MainProfilelandscape()
             ],
           ),
         ),

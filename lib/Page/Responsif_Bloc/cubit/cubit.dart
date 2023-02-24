@@ -18,9 +18,10 @@ class CounterCubit extends Cubit<CounterStates> {
   //   emit(CounterMinusState(counter: counter));
   // }
   void bagi() {
-    counter = (counter/2) as int;
+    counter = (counter/2).toInt();
     emit(CounterMinusState(counter: counter));
   }
+
   void kali() {
     counter *= 2;
     emit(CounterMinusState(counter: counter));

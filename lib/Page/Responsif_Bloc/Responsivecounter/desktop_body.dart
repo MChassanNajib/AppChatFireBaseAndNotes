@@ -24,6 +24,7 @@ class MyDesktopBody extends StatelessWidget {
         },
         builder: (BuildContext context, CounterStates state) {
           return Scaffold(
+            backgroundColor: Colors.black,
             body: Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

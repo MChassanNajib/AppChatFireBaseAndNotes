@@ -68,6 +68,8 @@ flutter {
 }
 
 dependencies {
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.facebook.android:facebook-android-sdk:[8,9)'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.google.firebase:firebase-analytics'
     implementation platform('com.google.firebase:firebase-bom:31.2.0')

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mynotes/Materials/Colors/constant.dart';
 import '../cubit/cubit.dart';
 import '../cubit/states.dart';
 
-class MyDesktopBody extends StatelessWidget {
-  const MyDesktopBody({Key? key}) : super(key: key);
+class MyMobileBody extends StatelessWidget {
+  const MyMobileBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +25,20 @@ class MyDesktopBody extends StatelessWidget {
         },
         builder: (BuildContext context, CounterStates state) {
           return Scaffold(
+            backgroundColor: Colors.black,
             body: Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  TextButton(
+                    onPressed: () {
+                      CounterCubit.get(context).plus();
+                    },
+                    child: const Text(
+                      "PLUS",
+                      style: TextStyle(color: secondary),
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 20,
@@ -35,52 +46,20 @@ class MyDesktopBody extends StatelessWidget {
                     child: Text(
                       "${CounterCubit.get(context).counter}",
                       style: const TextStyle(
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 80,
+                        fontSize: 50,
                       ),
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          CounterCubit.get(context).plus();
-                        },
-                        child: const Text(
-                          "PLUS (1)",
-                          style: TextStyle(fontSize: 30, color: Colors.green),
-                        ),
-                      ),
-                      TextButton(
+                  TextButton(
                     onPressed: () {
                       CounterCubit.get(context).minus();
                     },
                     child: const Text(
-                      "MINUS (1)",
-                      style: TextStyle(fontSize: 30, color: Colors.red),
+                      "MINUS",
+                      style: TextStyle(color: secondary),
                     ),
-                        //kali
-                  ),
-                      TextButton(
-                    onPressed: () {
-                      CounterCubit.get(context).kali();
-                    },
-                    child: const Text(
-                      "KALI (2)",
-                      style: TextStyle(fontSize: 30, color: Colors.yellow),
-                    ),
-                  ),
-                      TextButton(
-                        onPressed: () {
-                          CounterCubit.get(context).bagi();
-                        },
-                        child: const Text(
-                          "BAGI (2)",
-                          style: TextStyle(fontSize: 30, color: Colors.blue),
-                        ),
-                      ),
-                    ],
                   ),
                 ],
               ),

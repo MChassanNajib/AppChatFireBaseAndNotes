@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mynotes/Materials/Colors/constant.dart';
+import 'package:mynotes/Page/CRUD/crud.dart';
 import 'package:mynotes/Page/LoginPage/profile/mainprofile.dart';
+import 'package:mynotes/Page/Responsif_Bloc/cruds.dart';
 import 'package:mynotes/Page/Responsif_Bloc/notes.dart';
+import 'package:mynotes/Page/Responsif_Bloc/mainprofile.dart';
 
 class TabBarDemo extends StatelessWidget {
   const TabBarDemo({super.key});
@@ -9,13 +13,13 @@ class TabBarDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: DefaultTabController(
-        length: 4,
+        length: 3,
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: secondary,
             bottom: const TabBar(
               tabs: [
                 Tab(icon: Icon(Icons.home)),
-                Tab(icon: Icon(Icons.plumbing_sharp)),
                 Tab(icon: Icon(Icons.numbers)),
                 Tab(icon: Icon(Icons.emoji_people)),
               ],
@@ -27,9 +31,9 @@ class TabBarDemo extends StatelessWidget {
               //ilham
               notes(),
               //crud ahmad
-              //chat firebase
+              crudresponsive(),
               //profile
-              MainProfile()
+              MainProfilelandscape()
             ],
           ),
         ),

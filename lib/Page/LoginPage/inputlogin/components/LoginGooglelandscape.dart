@@ -40,8 +40,8 @@ class _LoginGooglelandscapeState extends State<LoginGooglelandscape> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 0),
-      height: 34,
-      width: 166,
+      height: 40,
+      width: 250,
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
           side: const BorderSide(color: quaternary, width: 1),

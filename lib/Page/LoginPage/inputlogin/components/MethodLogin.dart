@@ -95,6 +95,35 @@ class _MethodLoginState extends State<MethodLogin> {
     );
   }
 
+  Widget _entryFieldUsernamelandscape(
+    String title,
+    TextEditingController controller,
+  ) {
+    return Container(
+      alignment: Alignment.center,
+      margin: const EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.only(left: 20, right: 20),
+      height: 46,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(0),
+        color: Colors.grey[200],
+      ),
+      child: TextField(
+        cursorColor: secondary,
+        decoration: const InputDecoration(
+          icon: Icon(
+            Icons.person,
+            color: secondary,
+          ),
+          hintText: "Enter Username",
+          enabledBorder: InputBorder.none,
+          focusedBorder: InputBorder.none,
+        ),
+        controller: controller,
+      ),
+    );
+  }
+
   Widget _entryFieldEmail(
     String title,
     TextEditingController controller,
@@ -193,7 +222,8 @@ class _MethodLoginState extends State<MethodLogin> {
       ),
     );
   }
-Widget _entryFieldPasswordlandscape(
+
+  Widget _entryFieldPasswordlandscape(
     String title,
     TextEditingController controller,
   ) {
@@ -255,6 +285,7 @@ Widget _entryFieldPasswordlandscape(
       ),
     );
   }
+
   Widget _submitButtonlandscape() {
     return Container(
       height: 46,
@@ -323,7 +354,15 @@ Widget _entryFieldPasswordlandscape(
                     }
                   },
                 )
-              : Register(),
+              : LayoutBuilder(
+            builder: (context, constraints) {
+              if (constraints.maxWidth < mobileWidth) {
+                return Register();
+              } else {
+                return Registerlandscape();
+              }
+            },
+          ),
         ),
       ),
     );
@@ -354,25 +393,27 @@ Widget _entryFieldPasswordlandscape(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Flexible(child: Column(
-            children: <Widget>[
-              const Logolandscape(),
-              const LoginGooglelandscape(),
-
-            ],
-          ),),
-          Flexible(child: Column(
-            children: <Widget>[
-              SizedBox(height: 50,),
-              _entryFieldEmaillandscape('email', _controllerEmail),
-              _entryFieldPasswordlandscape('password', _controllerPassword),
-              _submitButtonlandscape(),
-              _loginOrRegisterButton(),
-            ],
-          ),)
-
-
-
+          Flexible(
+            child: Column(
+              children: <Widget>[
+                const Logolandscape(),
+                const LoginGooglelandscape(),
+              ],
+            ),
+          ),
+          Flexible(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 50,
+                ),
+                _entryFieldEmaillandscape('email', _controllerEmail),
+                _entryFieldPasswordlandscape('password', _controllerPassword),
+                _submitButtonlandscape(),
+                _loginOrRegisterButton(),
+              ],
+            ),
+          )
         ],
       ),
     );
@@ -391,6 +432,40 @@ Widget _entryFieldPasswordlandscape(
           _entryFieldPassword('password', _controllerPassword),
           _submitButton(),
           _loginOrRegisterButton(),
+        ],
+      ),
+    );
+  }
+
+  Widget Registerlandscape() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Flexible(
+            child: Column(
+              children: <Widget>[
+                const Logolandscape(),
+                const LoginGooglelandscape(),
+              ],
+            ),
+          ),
+          Flexible(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 50,
+                ),
+                _entryFieldUsernamelandscape('username', _controllerUsername),
+                _entryFieldEmaillandscape('email', _controllerEmail),
+                _entryFieldPasswordlandscape('password', _controllerPassword),
+                _submitButtonlandscape(),
+                _loginOrRegisterButton(),
+              ],
+            ),
+          )
         ],
       ),
     );
